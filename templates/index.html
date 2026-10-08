@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🍎 Fruit Prediction</h1>
+
+        <form action="/predict" method="POST">
+
+            <label>Diameter</label>
+            <input type="number"
+                   step="any"
+                   name="diameter"
+                   placeholder="Enter diameter"
+                   required>
+
+            <label>Weight</label>
+            <input type="number"
+                   step="any"
+                   name="weight"
+                   placeholder="Enter weight"
+                   required>
+
+            <button type="submit">
+                Predict Fruit
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <h3>{{ prediction }}</h3>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
+
